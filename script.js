@@ -88,23 +88,10 @@ document.querySelectorAll('.hotel-card').forEach(card => {
     if (!price) card.querySelector('p:nth-child(3)').innerText = 'Price: N/A';
     if (!rating) card.querySelector('p:nth-child(4)').innerText = 'Rating: N/A';
 });
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const response = await fetch('hotels.json');
-        if (!response.ok) {
-            throw new Error('Failed to fetch hotels data');
-        }
-        const hotels = await response.json();
-
-        console.log("Hotels data loaded:", hotels); // Debugging log
-
-        const hotelDirectory = new HotelDirectory(hotels);
-        hotelDirectory.renderHotels();
-    } catch (error) {
-        console.error('Error loading hotels data:', error);
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    const hotelDirectory = new HotelDirectory(hotels);
+    hotelDirectory.renderHotels();
 });
-
 document.addEventListener("DOMContentLoaded", () => {
     const ratings = document.querySelectorAll(".rating");
 
