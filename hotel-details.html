@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo"><i class="fas fa-hotel"></i> Hotel Listings</div>
+    </header>
+
+    <main class="hotel-details-container">
+      <div id="hotel-details" class="hotel-details"></div>
+      <!-- Container for hotel details -->
+
+      <!-- Back to Home Button -->
+      <div class="back-button-container">
+        <a href="index.html" id="backButton" class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 Hotel Listings Directory. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("hotels.json")
+          .then((response) => response.json())
+          .then((hotels) => {
+            console.log(hotels); // Log the fetched data
+            const hotelId = new URLSearchParams(window.location.search).get(
+              "id"
+            );
+            console.log("Hotel ID:", hotelId); // Log the hotel ID from URL
+            const hotel = hotels.find((h) => h.id === parseInt(hotelId));
+            console.log("Found hotel:", hotel); // Log the found hotel
+
+            if (hotel) {
+              renderHotelDetails(hotel);
+            } else {
+              document.getElementById(
+                "hotel-details"
+              ).innerHTML = `<h1>Hotel not found!</h1>`;
+            }
+          })
+          .catch((error) => {
+            console.error("Error loading the JSON file:", error);
+            document.getElementById(
+              "hotel-details"
+            ).innerHTML = `<h1>Failed to load hotel details!</h1>`;
+          });
+      });
+
+      function renderHotelDetails(hotel) {
+        const hotelDetailsDiv = document.getElementById("hotel-details");
+        hotelDetailsDiv.innerHTML = `
+                <div class="hotel-header">
+                    <h1><i class="fas fa-hotel"></i> ${
+                      hotel.name
+                    }</h1> <!-- Icon for the hotel name -->
+                    <p><strong><i class="fas fa-map-marker-alt"></i> Location:</strong> ${
+                      hotel.location
+                    }</p> <!-- Location Icon -->
+                    <p><strong><i class="fas fa-info-circle"></i> Where:</strong> ${
+                      hotel.locationDetails
+                    }</p> <!-- Info Icon -->
+                    <p><strong><i class="fas fa-align-left"></i> Description:</strong> ${
+                      hotel.description
+                    }</p> <!-- Description Icon -->
+                    <p><strong><i class="fas fa-tag"></i> Price:</strong> ₱${hotel.price.toLocaleString()} per night</p> <!-- Price Tag Icon -->
+                    <p class="rating">
+                        <strong><i class="fas fa-star"></i> Rating:</strong> ${"★".repeat(
+                          hotel.starRating
+                        )} (${hotel.rating})
+                    </p> <!-- Star Icon for Rating -->
+                </div>
+                <div class="hotel-info">
+                    <h2><i class="fas fa-list"></i> Highlights</h2>
+                    <ul>
+                        ${hotel.highlights
+                          .map(
+                            (highlight) => `
+                            <li>
+                                ${
+                                  highlight === "Private beach"
+                                    ? '<i class="fas fa-umbrella-beach"></i>'
+                                    : ""
+                                }
+                                ${
+                                  highlight === "Infinity pool"
+                                    ? '<i class="fas fa-swimming-pool"></i>'
+                                    : ""
+                                }
+                                ${
+                                  highlight === "Water sports activities"
+                                    ? '<i class="fas fa-water"></i>'
+                                    : ""
+                                }
+                                ${
+                                  highlight === "Great Breakfast"
+                                    ? '<i class="fas fa-bread-slice"></i>'
+                                    : ""
+                                }
+                                ${
+                                  highlight === "Convenient location"
+                                    ? '<i class="fas fa-map-marked-alt"></i>'
+                                    : ""
+                                }
+                                ${
+                                  highlight === "Mount Mayon view"
+                                    ? '<i class="fas fa-mountain"></i>'
+                                    : ""
+                                }
+                                ${highlight}
+                            </li>`
+                          )
+                          .join("")}
+                    </ul>
+        
+                    <h2><i class="fas fa-concierge-bell"></i> Facilities</h2>
+                    <ul>
+                        ${hotel.facilities
+                          .map(
+                            (facility) => `
+                            <li>
+                                ${
+                                  facility === "Spa"
+                                    ? '<i class="fas fa-spa"></i>'
+                                    : ""
+                                }
+                                ${
+                                  facility === "Restaurant"
+                                    ? '<i class="fas fa-utensils"></i>'
+                                    : ""
+                                }
+                                ${
+                                  facility === "Free WiFi"
+                                    ? '<i class="fas fa-wifi"></i>'
+                                    : ""
+                                }
+                                ${
+                                  facility === "Parking"
+                                    ? '<i class="fas fa-parking"></i>'
+                                    : ""
+                                }
+                                ${
+                                  facility === "Fitness center"
+                                    ? '<i class="fas fa-dumbbell"></i>'
+                                    : ""
+                                }
+                                ${
+                                  facility === "Swimming pool [indoor]"
+                                    ? '<i class="fas fa-swimmer"></i>'
+                                    : ""
+                                }
+                                ${
+                                  facility === "Valet parking"
+                                    ? '<i class="fas fa-car"></i>'
+                                    : ""
+                                }
+                                ${facility}
+                            </li>`
+                          )
+                          .join("")}
+                    </ul>
+        
+                    <h2><i class="fas fa-bed"></i> Rooms</h2>
+                    <ul>
+                        ${hotel.rooms
+                          .map(
+                            (room) => `
+                            <li>
+                                <strong>
+                                    ${
+                                      room.type === "Standard Room"
+                                        ? '<i class="fas fa-bed"></i>'
+                                        : ""
+                                    }
+                                    ${
+                                      room.type === "Deluxe Room"
+                                        ? '<i class="fas fa-door-open"></i>'
+                                        : ""
+                                    }
+                                    ${
+                                      room.type === "Penthouse Suite"
+                                        ? '<i class="fas fa-building"></i>'
+                                        : ""
+                                    }
+                                    ${room.type}
+                                </strong>
+                                <ul>
+                                    ${room.amenities
+                                      .map(
+                                        (amenity) => `
+                                        <li>
+                                            ${
+                                              amenity === "King bed"
+                                                ? '<i class="fas fa-crown"></i>'
+                                                : ""
+                                            }
+                                            ${
+                                              amenity === "Queen bed"
+                                                ? '<i class="fas fa-couch"></i>'
+                                                : ""
+                                            }
+                                            ${
+                                              amenity === "TV"
+                                                ? '<i class="fas fa-tv"></i>'
+                                                : ""
+                                            }
+                                            ${
+                                              amenity === "Air conditioning"
+                                                ? '<i class="fas fa-wind"></i>'
+                                                : ""
+                                            }
+                                            ${
+                                              amenity === "Private pool"
+                                                ? '<i class="fas fa-water-ladder"></i>'
+                                                : ""
+                                            }
+                                            ${
+                                              amenity === "Living room"
+                                                ? '<i class="fas fa-chair"></i>'
+                                                : ""
+                                            }
+                                            ${
+                                              amenity === "Mini-bar"
+                                                ? '<i class="fas fa-wine-glass-alt"></i>'
+                                                : ""
+                                            }
+                                            ${amenity}
+                                        </li>`
+                                      )
+                                      .join("")}
+                                </ul>
+                            </li>`
+                          )
+                          .join("")}
+                    </ul>
+                </div>
+        
+                <div class="hotel-images">
+                    <h2>Images</h2>
+                    <div class="image-gallery">
+                        ${hotel.images
+                          .map(
+                            (image) => `
+                            <img src="${image}" alt="${hotel.name}" class="hotel-image" onclick="openLightbox('${image}')"/>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+            `;
+      }
+
+      function openLightbox(imageUrl) {
+        const lightbox = document.createElement("div");
+        lightbox.className = "lightbox";
+        lightbox.innerHTML = `
+                <div class="lightbox-content">
+                    <img src="${imageUrl}" alt="Hotel Image"/>
+                    <span class="close" onclick="closeLightbox()">&times;</span>
+                </div>
+            `;
+        document.body.appendChild(lightbox);
+      }
+
+      function closeLightbox() {
+        document.querySelector(".lightbox").remove();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,256 @@
+// Enhanced Hotel Data Model
+    
+    // Add more hotels here with similar structure
+];
+
+class HotelDirectory {
+    constructor(hotels) {
+        this.hotels = hotels;
+        this.filteredHotels = hotels;
+        this.initializeEventListeners();
+    }
+
+    initializeEventListeners() {
+        // Search Input
+        document.getElementById('searchInput').addEventListener('input', 
+            this.debounce(this.handleSearch.bind(this), 300)
+        );
+
+        // Filters
+        document.getElementById('locationFilter').addEventListener('change', 
+            this.handleLocationFilter.bind(this)
+        );
+        document.getElementById('priceFilter').addEventListener('change', 
+            this.handlePriceFilter.bind(this)
+        );
+        document.getElementById('ratingFilter').addEventListener('change', 
+            this.handleRatingFilter.bind(this)
+        );
+        document.getElementById('sortSelect').addEventListener('change', 
+            this.handleSorting.bind(this)
+        );
+
+        // Clear Filters
+        document.getElementById('clearFiltersBtn').addEventListener('click', 
+            this.resetFilters.bind(this)
+        );
+    }
+
+    // Utility Methods
+    debounce(func, delay) {
+        let timeoutId;
+        return function() {
+            const context = this;
+            const args = arguments;
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func.apply(context, args), delay);
+        };
+    }
+
+    // Filtering Methods
+    handleSearch(event) {
+        const searchTerm = event.target.value.toLowerCase();
+        this.filteredHotels = this.hotels.filter(hotel => 
+            hotel.name.toLowerCase().includes(searchTerm) ||
+            hotel.location.toLowerCase().includes(searchTerm) ||
+            hotel.description.toLowerCase().includes(searchTerm) ||
+            hotel.facilities.some(facility => 
+                facility.toLowerCase().includes(searchTerm)
+            )
+        );
+        this.renderHotels();
+    }
+
+    handleLocationFilter(event) {
+        const location = event.target.value;
+        this.filteredHotels = location 
+            ? this.hotels.filter(hotel => hotel.location === location)
+            : this.hotels;
+        this.renderHotels();
+    }
+    handlePriceFilter(event) {
+        const priceRange = event.target.value;
+    
+        if (!priceRange) {
+            this.filteredHotels = this.hotels; // No filter selected, show all hotels
+        } else {
+            const [minPrice, maxPrice] = priceRange.split('-').map(num => parseInt(num));
+    
+            this.filteredHotels = this.hotels.filter(hotel => {
+                // Check if the hotel price falls within the selected range
+                return hotel.price >= minPrice && hotel.price <= maxPrice;
+            });
+        }
+    
+        this.renderHotels();
+    }
+    
+
+    handleRatingFilter(event) {
+        const starRating = parseInt(event.target.value);
+        this.filteredHotels = starRating
+            ? this.hotels.filter(hotel => hotel.starRating === starRating)
+            : this.hotels;
+        this.renderHotels();
+    }
+
+    handleSorting(event) {
+        const sortOption = event.target.value;
+        switch(sortOption) {
+            case 'price-low':
+                this.filteredHotels.sort((a, b) => a.price - b.price);
+                break;
+            case 'price-high':
+                this.filteredHotels.sort((a, b) => b.price - a.price);
+                break;
+            case 'rating':
+                this.filteredHotels.sort((a, b) => b.rating - a.rating);
+                break;
+            default:
+                this.filteredHotels = [...this.hotels];
+        }
+        this.renderHotels();
+    }
+
+    resetFilters() {
+        // Reset all filter dropdowns and search input
+        document.getElementById('locationFilter').selectedIndex = 0;
+        document.getElementById('priceFilter').selectedIndex = 0;
+        document.getElementById('ratingFilter').selectedIndex = 0;
+        document.getElementById('sortSelect').selectedIndex = 0;
+        document.getElementById('searchInput').value = '';
+        
+        this.filteredHotels = this.hotels;
+        this.renderHotels();
+    }
+
+    // Rendering Methods
+    createHotelCard(hotel) {
+        return `
+            <div class="hotel-card" data-hotel-id="${hotel.id}">
+                <div class="hotel-image-container">
+                    <img src="${hotel.images[0]}" alt="${hotel.name}" class="hotel-image" 
+                         onclick="openModal(${hotel.id - 1})">
+                    <div class="hotel-badge"></div>
+                </div>
+                <div class="hotel-info">
+                    <h3 class="hotel-name">${hotel.name}</h3>
+                    <div class="hotel-rating">
+                        <span class="rating-stars">${'★'.repeat(hotel.starRating)}</span>
+                        <span class="rating-score">${hotel.rating.toFixed(1)}</span>
+                        <span class="rating-guest">
+                            <i class="fas fa-users"></i> <!-- Guest Icon -->
+                        </span>
+                    </div>
+                    <p class="hotel-location">
+                        <i class="fas fa-map-marker-alt"></i> ${hotel.location}
+                    </p>
+                    <p class="hotel-location-details"> ${hotel.locationDetails}</p>
+                    <p class="hotel-description">${hotel.description}</p>
+                    
+                    
+                    <!-- Highlights and Facilities Sections -->
+                    <div class="hotel-features">
+                        <div class="feature-section">
+                            <h4>Highlights:</h4>
+                            <ul class="feature-list">
+                                ${hotel.highlights.map(h => `<li class="feature-item">${h}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="feature-section">
+                            <h4>Facilities:</h4>
+                            <ul class="feature-list">
+                                ${hotel.facilities.map(f => `<li class="feature-item">${f}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Rooms Section -->
+                    <div class="feature-section">
+                        <h4>Rooms:<i class="fa-solid fa-door-open"></i> </h4>
+                        <ul class="feature-list">
+                            ${hotel.rooms.map(room => `
+                                <li class="feature-item">
+                                    <strong>${room.type}</strong>
+                                    <ul class="amenities-list">
+                                        ${room.amenities.map(amenity => `<li>${amenity}</li>`).join('')}
+                                    </ul>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+                
+                    <div class="hotel-pricing">
+                        <span class="price">₱${hotel.price.toLocaleString()} 
+                            <small>per night</small>
+                        </span>
+                        <button class="book-now-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }    
+    
+    
+    renderHotels() {
+        const hotelsGrid = document.getElementById("hotelsGrid");
+        
+        if (this.filteredHotels.length === 0) {
+            hotelsGrid.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-search-minus"></i>
+                    <h3>No Hotels Found</h3>
+                    <p>Try adjusting your search or filters</p>
+                </div>
+            `;
+            return;
+        }
+
+        hotelsGrid.innerHTML = this.filteredHotels
+            .map(hotel => this.createHotelCard(hotel))
+            .join("");
+    }
+}
+
+// Image Modal Functions (kept from original script)
+let currentHotelIndex = 0;
+let currentImageIndex = 0;
+
+function openModal(hotelIndex) {
+    currentHotelIndex = hotelIndex;
+    currentImageIndex = 0;
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    modal.style.display = "flex";
+    modalImage.src = hotels[hotelIndex].images[currentImageIndex];
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+
+function showNextImage() {
+    const hotelImages = hotels[currentHotelIndex].images;
+    currentImageIndex = (currentImageIndex + 1) % hotelImages.length;
+    document.getElementById("modalImage").src = hotelImages[currentImageIndex];
+    updateModalButtons();
+}
+
+function showPrevImage() {
+    const hotelImages = hotels[currentHotelIndex].images;
+    currentImageIndex = (currentImageIndex - 1 + hotelImages.length) % hotelImages.length;
+    document.getElementById("modalImage").src = hotelImages[currentImageIndex];
+    updateModalButtons();
+}
+
+function updateModalButtons() {
+    const hotelImages = hotels[currentHotelIndex].images;
+    document.getElementById("prevImageBtn").disabled = currentImageIndex === 0;
+    document.getElementById("nextImageBtn").disabled = currentImageIndex === hotelImages.length - 1;
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+    const hotelDirectory = new HotelDirectory(hotels);
+    hotelDirectory.renderHotels();
+});

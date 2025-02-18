@@ -1,0 +1,389 @@
+[
+    {
+        "id": 1,
+        "name": "Misibis Bay Resort",
+        "starRating": 5,
+        "rating": 4.7,
+        "description": "A luxurious island resort offering stunning views, water sports, and fine dining.",
+        "locationDetails": "Cagraray Island, Bacacay, Albay",
+        "location": "Bacacay, Albay",
+        "price": 7520,
+        "priceCategory": "5000-10000",
+        "highlights": [
+            "Private beach",
+            "Infinity pool",
+            "Water sports activities"
+        ],
+        "facilities": [
+            "Spa", 
+            "Restaurant", 
+            "Fitness center", 
+            "Free WiFi"
+        ],
+        "rooms": [
+            {
+                "type": "Deluxe Room",
+                "amenities": ["King bed", "Ocean view", "Air conditioning"]
+            },
+            {
+                "type": "Villa",
+                "amenities": ["Private pool", "Living room", "Mini-bar"]
+            }
+        ],
+        "images": [
+            "assets/msbs/ms_img1.jpg", 
+            "assets/msbs/ms_img2.jpg",
+            "assets/msbs/ms_img3.jpg", 
+            "assets/msbs/ms_img4.jpg", 
+            "assets/msbs/ms_img5.jpg", 
+            "assets/msbs/ms_img6.jpg", 
+            "assets/msbs/ms_img7.jpg", 
+            "assets/msbs/ms_img8.jpg", 
+            "assets/msbs/ms_img9.jpg", 
+            "assets/msbs/ms_img10.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "The Marison Hotel",
+        "starRating": 4,
+        "rating": 4.4,
+        "description": "A modern hotel in Legazpi City providing comfortable accommodations and convenient amenities.",
+        "locationDetails": "Corner Imelda Roces Ave, Legazpi City, Albay",
+        "location": "Legazpi City",
+        "price": 4411,
+        "priceCategory": "4000-5000",
+        "highlights": [
+            "Convenient location",
+            "Meeting rooms",
+            "Swimming pool"
+        ],
+        "facilities": [
+            "Free breakfast",
+            "24-hour front desk",
+            "Free WiFi"
+        ],
+        "rooms": [
+            {
+                "type": "Superior Room",
+                "amenities": ["Queen bed", "Air conditioning", "TV"]
+            },
+            {
+                "type": "Junior Suite",
+                "amenities": ["King bed", "Mini-bar", "Living area"]
+            }
+        ],
+        "images": [
+            "assets/marison/img (1).jpg",
+            "assets/marison/img (2).jpg",
+            "assets/marison/img (3).jpg",
+            "assets/marison/img (4).jpg",
+            "assets/marison/img (5).jpg",
+            "assets/marison/img (6).jpg",
+            "assets/marison/img (7).jpg",
+            "assets/marison/img (8).jpg",
+            "assets/marison/img (9).jpg",
+            "assets/marison/img (10).jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "The Oriental Hotel",
+        "starRating": 4,
+        "rating": 4.2,
+        "description": "A stylish hotel in Cooks Hill, Australia, known for its chic quarters and spa.",
+        "locationDetails": "Cagsawa, Daraga, Albay",
+        "location": "Daraga, Albay",
+        "price": 2400,
+        "priceCategory": "4000-5000",
+        "highlights": [
+            "Mount Mayon view",
+            "Rooftop bar",
+            "Outdoor pool"
+        ],
+        "facilities": [
+            "Restaurant",
+            "Spa",
+            "Conference rooms",
+            "Free WiFi"
+        ],
+        "rooms": [
+            {
+                "type": "Deluxe Room",
+                "amenities": ["King bed", "Mountain view", "Air conditioning"]
+            },
+            {
+                "type": "Penthouse Suite",
+                "amenities": ["Living area", "Balcony", "Mini-bar"]
+            }
+        ],
+        "images": [
+            "assets/oriental/img (1).jpg",
+            "assets/oriental/img (2).jpg",
+            "assets/oriental/img (4).jpg",
+            "assets/oriental/img (5).jpg",
+            "assets/oriental/img (6).jpg",
+            "assets/oriental/img (7).jpg",
+            "assets/oriental/img (8).jpg",
+            "assets/oriental/img (9).jpg",
+            "assets/oriental/img (10).jpg",
+            "assets/oriental/img (11).jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Hotel St. Ellis",
+        "starRating": 3,
+        "rating": 3.8,
+        "description": "A polished hotel in Legazpi City offering modern comforts and captivating views",
+        "locationDetails": "Corner of Almeda and Rizal Sts, Legazpi City, 4500 Albay",
+        "location": "Legazpi City",
+        "price": 3200,
+        "priceCategory": "3000-4000",
+        "highlights": [
+            "City center location",
+            "Affordable",
+            "Free parking"
+        ],
+        "facilities": [
+            "Restaurant", 
+            "Free WiFi", 
+            "Event facilities"
+        ],
+        "rooms": [
+            {
+                "type": "Standard Room",
+                "amenities": ["Queen bed", "Air conditioning", "TV"]
+            },
+            {
+                "type": "Family Suite",
+                "amenities": ["2 Queen beds", "Living area", "Mini-bar"]
+            }
+        ],
+        "images": [
+            "assets/st_ellis/img (2).jpg",
+            "assets/st_ellis/img (3).jpg",
+            "assets/st_ellis/img (4).jpg",
+            "assets/st_ellis/img (5).jpg",
+            "assets/st_ellis/img (6).jpg",
+            "assets/st_ellis/img (7).jpg",
+            "assets/st_ellis/img (8).jpg",
+            "assets/st_ellis/img (9).jpg",
+            "assets/st_ellis/img (10).jpg",
+            "assets/st_ellis/img (11).jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Hotel Inigo",
+        "starRating": 4,
+        "rating": 3.9,
+        "description": "A budget-friendly hotel in Legazpi City providing basic accommodations and Wi-Fi.",
+        "locationDetails": "Rizal St, Barangay 19 Cabangan, Legazpi City, 4500 Albay",
+        "location": "Legazpi City",
+        "price": 3407,
+        "priceCategory": "4000-5000",
+        "highlights": [
+            "Hygiene plus",
+            "580 meters to General Ignacio Paua Monument",
+            "Check-in [24-hour]",
+            "Free airport transfer",
+            "Great Breakfast"
+        ],
+        "facilities": [
+            "Valet parking",
+            "Pets allowed",
+            "Free Wi-Fi in all rooms!",
+            "Front desk [24-hour]",
+            "Swimming pool [indoor]",
+            "Spa",
+            "Check-in/out [express]",
+            "Luggage storage"
+        ],
+        "rooms": [
+            {
+                "type": "Standard Room",
+                "amenities": ["Queen bed", "Air conditioning", "TV"]
+            },
+            {
+                "type": "Suite",
+                "amenities": ["King bed", "Living area", "Mini-bar"]
+            }
+        ],
+        "images": [
+            "/assets/inigo/img (1).jpg",
+            "/assets/inigo/img (2).jpg",
+            "/assets/inigo/img (3).jpg",
+            "/assets/inigo/img (4).jpg",
+            "/assets/inigo/img (5).jpg",
+            "/assets/inigo/img (6).jpg",
+            "/assets/inigo/img (7).jpg",
+            "/assets/inigo/img (9).jpg",
+            "/assets/inigo/img (10).jpg",
+            "/assets/inigo/img (11).jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Hotel Venezia",
+        "starRating": 3,
+        "rating": 3.7,
+        "description": " A charming hotel in Legazpi City offering comfortable rooms and excellent amenities.",
+        "locationDetails": "Barangay 6, Legazpi City, 4500 Albay",
+        "location": "Legazpi City",
+        "price": 2500,
+        "priceCategory": "2000-3000",
+        "highlights": [
+            "Affordable rates",
+            "Simple rooms"
+        ],
+        "facilities": [
+            "Free WiFi", 
+            "24-hour front desk"
+        ],
+        "rooms": [
+            {
+            "type": "Standard Room",
+            "amenities": ["Single bed", "Air conditioning", "TV"]
+            }
+        ],
+        "images": [
+            "/assets/venezia/vnz (1).jpg",
+            "/assets/venezia/vnz (2).jpg",
+            "/assets/venezia/vnz (3).jpg",
+            "/assets/venezia/vnz (4).jpg",
+            "/assets/venezia/vnz (5).jpg",
+            "/assets/venezia/vnz (6).jpg",
+            "/assets/venezia/vnz (7).jpg",
+            "/assets/venezia/vnz (8).jpg",
+            "/assets/venezia/vnz (9).jpg",
+            "/assets/venezia/vnz (10).jpg"
+
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Alicia Hotel",
+        "starRating": 4,
+        "rating": 4.1,
+        "description": "A hotel in Legazpi City offering comfortable accommodations and convenient amenities.",
+        "locationDetails": "Rizal St, Legazpi City, 4500 Albay",
+        "location": "Legazpi City",
+        "price": 3500,
+        "priceCategory": "3000-4000",
+        "highlights": [
+            "Great customer service",
+            "Comfortable rooms"
+        ],
+        "facilities": [
+            "Free WiFi", 
+            "Restaurant", 
+            "Event rooms"
+        ],
+        "rooms": [
+            {
+                "type": "Superior Room",
+                "amenities": ["Queen bed", "Air conditioning", "TV"]
+            },
+            {
+                "type": "Executive Suite",
+                "amenities": ["King bed", "Living area", "Mini-bar"]
+            }
+        ],
+        "images": [
+            "/assets/alicia/img (1).jpg",
+            "/assets/alicia/img (2).jpg",
+            "/assets/alicia/img (3).jpg",
+            "/assets/alicia/img (4).jpg",
+            "/assets/alicia/img (5).jpg",
+            "/assets/alicia/img (6).jpg",
+            "/assets/alicia/img (7).jpg",
+            "/assets/alicia/img (8).jpg",
+            "/assets/alicia/img (9).jpg",
+            "/assets/alicia/img (10).jpg"
+
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Hotel Lucca",
+        "starRating": 4,
+        "rating": 4.0,
+        "description": "A modern hotel in Legazpi City offering comfortable accommodations and convenient amenities.",
+        "locationDetails": "Rizal St, Barangay 11, Legazpi City, 4500 Albay",
+        "location": "Legazpi City",
+        "price": 4200,
+        "priceCategory": "4000-5000",
+        "highlights": [
+            "Modern design",
+            "Rooftop restaurant"
+        ],
+        "facilities": [
+            "Spa", 
+            "Fitness center", 
+            "Free WiFi"
+        ],
+        "rooms": [
+            {
+                "type": "Deluxe Room",
+                "amenities": ["King bed", "City view", "Air conditioning"]
+            },
+            {
+                "type": "Penthouse Suite",
+                "amenities": ["Living area", "Balcony", "Mini-bar"]
+            }
+        ],
+        "images": [
+            "/assets/lucca/img (1).jpg",
+            "/assets/lucca/img (2).jpg",
+            "/assets/lucca/img (3).jpg",
+            "/assets/lucca/img (4).jpg",
+            "/assets/lucca/img (5).jpg",
+            "/assets/lucca/img (6).jpg",
+            "/assets/lucca/img (7).jpg",
+            "/assets/lucca/img (8).jpg",
+            "/assets/lucca/img (9).jpg"       
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Hotel Areca",
+        "starRating": 3,
+        "rating": 3.6,
+        "description": "A budget-friendly hotel in Legazpi City providing basic accommodations and Wi-Fi.",
+        "locationDetails": "Purok 2, Legazpi City, 4500 Albay",
+        "location": "Legazpi City",
+        "price": 2800,
+        "priceCategory": "2000-3000",
+        "highlights": [
+            "Affordable rates",
+            "Friendly staff"
+        ],
+        "facilities": [
+            "Free WiFi", 
+            "24-hour front desk"
+        ],
+        "rooms": [
+            {
+                "type": "Standard Room",
+                "amenities": ["Single bed", "Air conditioning", "TV"]
+            }
+        ],
+        "images": [
+            "/assets/areca/img (10).jpg",
+            "/assets/areca/img (1).jpg",
+            "/assets/areca/img (2).jpg",
+            "/assets/areca/img (3).jpg",
+            "/assets/areca/img (4).jpg",
+            "/assets/areca/img (5).jpg",
+            "/assets/areca/img (6).jpg",
+            "/assets/areca/img (7).jpg",
+            "/assets/areca/img (8).jpg",
+            "/assets/areca/img (9).jpg"
+
+        ]
+    }
+    
+   
+    
+]

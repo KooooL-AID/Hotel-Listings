@@ -1,0 +1,389 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:lightgray;/* Soft light background */
+    color: #333;
+}
+
+header {
+    background-color:#b4d0ed; /* Greywhite background */
+    color: #2c3e50; /* Dark text color */
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo in header */
+.logo-link {
+    font-family: 'Times New Roman', Times, serif;   /* Font Style */
+    font-size: 3em; /* Larger logo */
+    font-weight: 500;
+    color:black; /* Dark color for logo */
+    
+}
+
+.logo-link i {
+    color: #ff6f61;
+    margin-right: 0.5rem; /* Space between the icon and text */
+}
+
+
+/* Image-size */
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Navigation Styles */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Search and Filter Section */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input, .filter-select {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    transition: border-color 0.3s ease;
+    font-size: 14px;
+    max-width: 250px;
+}
+
+.search-input:focus, .filter-select:focus {
+    border-color: #f7c208; /* Accent color on focus */
+}
+
+/* Filter Section */
+.filters {
+    
+    padding: 20px;
+    background-color:#2c3e50; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.filter-options {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+/* Clear filters button */
+.clear-filters-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clear-filters-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+/* Hotels Grid */
+.hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.hotel-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.hotel-card h3 a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hotel-card h3 a:hover {
+    color: #3498db;
+}
+
+.hotel-card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+.hotel-card .price {
+    font-weight: bold;
+    color: #27ae60;
+}
+.rating {
+    color: gold;
+    font-size: 1.2em; /* Adjust as needed for size */
+    display: inline-block; /* Ensures proper alignment */
+    font-family: 'Font Awesome 5 Free', Arial, sans-serif; /* Fallback fonts */
+    font-weight: 900; /* For bold stars */
+}
+
+
+.hotel-card {
+    background-color: #d9e4ea; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hotel-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.hotel-info {
+    display: moz-grid-group;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid */
+    gap: 20px; /* Spacing between grid items */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px; /* Optional: limits the container width */
+}
+
+/* Card Styling for Each Section */
+.hotel-info h2 {
+    font-size: 1.5em;
+    color: #2c3e50; /* Accent color */
+    margin-bottom: 10px;
+    text-align: left; /* Align section headers */
+    grid-column: span 2; /* Make headers span across the grid */
+}
+
+.hotel-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Nested grid */
+    gap: 10px;
+}
+
+/* Card-Like Items */
+.hotel-info li {
+    background-color: #ffffff; /* White background for items */
+    padding: 15px; /* Larger padding for card style */
+    border-radius: 10px; /* Rounded corners for card effect */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for card */
+    font-size: 1em;
+    color: #555;
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation on hover */
+}
+
+/* Hover Effect for Cards */
+.hotel-info li:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+/* Emphasize Room Types */
+.hotel-info li strong {
+    color: #2c3e50; /* Darker accent color */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px; /* Space between title and details */
+}
+
+/* Nested Lists for Amenities */
+.hotel-info ul ul {
+    margin-top: 10px;
+    padding-left: 10px;
+    border-left: 2px solid #f7c208; /* Accent border for nested lists */
+}
+
+.hotel-info ul ul li {
+    background-color: transparent; /* No background for nested items */
+    box-shadow: none; /* Remove shadow */
+    padding: 5px 0;
+    font-size: 0.9em;
+    color: #777; /* Slightly lighter text for nested items */
+}
+
+
+
+/* Hotel Details Section */
+.hotel-details-container {
+    padding: 20px;
+}
+
+.hotel-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hotel-header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.hotel-header p {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+.rating {
+    color: gold;
+    font-size: 1.2em;
+}
+
+/* Hotel Info Section */
+.hotel-info h2 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #2c3e50;
+}
+
+.hotel-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.hotel-info li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Image Gallery */
+.hotel-images {
+    margin-top: 30px;
+}
+
+.hotel-images .image-gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hotel-images img {
+    max-width: 200%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hotel-images img:hover {
+    transform: scale(1.05);
+}
+.hotel-card img {
+    width: 150%; /* Make the image span the full width of its container */
+    height: 300px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image scales to cover the area without distortion */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    margin-bottom: 10px; /* Optional: Adds spacing below the image */
+}
+
+
+/* Lightbox Styles */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 8px;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Back Button */
+.back-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-button {
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button:hover {
+    background-color: #f7c208;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #f7c208;
+}

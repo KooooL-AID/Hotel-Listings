@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Directory Listing</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <a href="hotel-home.html" class="logo-link"
+            ><i class="fas fa-hotel"></i> StayAway
+          </a>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search hotels..."
+          /><i class="fa fa-search" aria-hidden="true"></i>
+
+          <select class="filter-select" id="sortSelect">
+            <option value="">Sort By</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="filters">
+        <div class="filter-options">
+          <select class="filter-select" id="locationFilter">
+            <option value="">All Locations</option>
+            <option value="Albay">Albay</option>
+            <option value="Daraga">Daraga</option>
+            <option value="Legazpi">Legazpi</option>
+          </select>
+          <select class="filter-select" id="priceFilter">
+            <option value="">All Prices</option>
+            <option value="1000-2500">₱1,000-₱2,500</option>
+            <option value="2500-5000">₱2,500 - ₱5,000</option>
+            <option value="7500-10000">₱7,500 - ₱10,000</option>
+            <option value="10000+">₱10,000+</option>
+          </select>
+          <select class="filter-select" id="ratingFilter">
+            <option value="">All Ratings</option>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+          </select>
+          <button id="clearFiltersBtn" class="clear-filters-btn">
+            <i class="fas fa-times-circle"></i> Clear Filters
+          </button>
+        </div>
+      </section>
+      <section class="hotels-grid" id="hotelsGrid">
+        <div class="hotel-card">
+          <img src="assets/msbs/ms_img1.jpg" alt="Hotel A" />
+          <h3><a href="hotel-details.html?id=1">Misibis Bay Resort</a></h3>
+          <p class="location">Cagraray Island, Bacacay, Albay,</p>
+          <p class="price">Price: ₱7,520</p>
+          <p class="rating" style="color: gold" data-rating="4.5"></p>
+        </div>
+
+        <div class="hotel-card">
+          <img src="/assets/marison/img (2).jpg" alt="Hotel B" />
+          <h3><a href="hotel-details.html?id=2">The Marison Hotel</a></h3>
+          <p class="location">Corner Imelda Roces Ave, Legazpi City, Albay</p>
+          <p class="price">Price: ₱4,411</p>
+          <p
+            class="rating"
+            id="rating"
+            style="color: gold"
+            data-rating="4.4"
+          ></p>
+        </div>
+
+        <div class="hotel-card">
+          <img src="/assets/oriental/img (3).jpg" alt="Hotel C" />
+          <h3><a href="hotel-details.html?id=3">The Oriental Hotel</a></h3>
+          <p class="location">
+            Sto. Niño Village, City, Albay, Legazpi Blvd, Legazpi City
+          </p>
+          <p class="price">Price: ₱7,000</p>
+          <p class="rating" style="color: gold" data-rating="3.9"></p>
+        </div>
+
+        <div class="hotel-card">
+          <img src="/assets/st_ellis/img (1).jpg" alt="Hotel D" />
+          <h3><a href="hotel-details.html?id=4">Hotel St. Ellis</a></h3>
+          <p class="location">Legazpi Port District, Legazpi City,Albay</p>
+          <p class="price">Price: ₱3,284</p>
+          <p class="rating" style="color: gold" data-rating="3.9"></p>
+        </div>
+
+        <div class="hotel-card">
+          <img src="/assets/inigo/img (8).jpg" alt="Hotel E" />
+          <h3><a href="hotel-details.html?id=5">Hotel Inigo</a></h3>
+          <p class="location">
+            Rizal St, Barangay 19 Cabangan, Legazpi City,Albay
+          </p>
+          <p class="price">Price: ₱3,419</p>
+          <p class="rating" style="color: gold" data-rating="4.5"></p>
+        </div>
+
+        <div class="hotel-card">
+          <img src="/assets/venezia/vnz (2).jpg" alt="Hotel F" />
+          <h3><a href="hotel-details.html?id=6">Hotel Venezia</a></h3>
+          <p class="location">
+            Renaissance Garden, F. Aquende Dr, Legazpi City, Albay
+          </p>
+          <p class="price">Price: ₱2,554</p>
+          <p class="rating" style="color: gold" data-rating="4.1"></p>
+        </div>
+
+        <div class="hotel-card">
+          <img src="/assets/alicia/img (1).jpg" alt="Hotel G" />
+          <h3><a href="hotel-details.html?id=7">Alicia Hotel</a></h3>
+          <p class="location">F. Aquende Dr, Legazpi City, Albay</p>
+          <p class="price">Price: ₱2,367</p>
+          <p class="rating" style="color: gold" data-rating="4.1"></p>
+        </div>
+
+        <div class="hotel-card">
+          <img src="/assets/lucca/img (10).jpg" alt="Hotel H" />
+          <h3><a href="hotel-details.html?id=8">Hotel Lucca</a></h3>
+          <p class="location">
+            Jasmin St, Legazpi Port District, Legazpi City, Albay
+          </p>
+          <p class="price">Price: ₱1,576</p>
+          <p class="rating" style="color: gold" data-rating="4.6">4.6</p>
+        </div>
+
+        <div class="hotel-card">
+          <img src="/assets/areca/img (3).jpg" alt="Hotel I" />
+          <h3><a href="hotel-details.html?id=9">Hotel Areca</a></h3>
+          <p class="location">
+            Rizal St, Old Albay District, Legazpi City,Albay
+          </p>
+          <p class="price">Price: ₱4,914</p>
+          <p class="rating" style="color: gold" data-rating="4.6">4.6</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; Hotel Listings Directory. All Rights Reserved 2024.</p>
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
