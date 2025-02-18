@@ -90,8 +90,13 @@ document.querySelectorAll('.hotel-card').forEach(card => {
 });
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('hotels.json'); // Fetch JSON file
-        const hotels = await response.json(); // Convert to JavaScript object
+        const response = await fetch('hotels.json');
+        if (!response.ok) {
+            throw new Error('Failed to fetch hotels data');
+        }
+        const hotels = await response.json();
+
+        console.log("Hotels data loaded:", hotels); // Debugging log
 
         const hotelDirectory = new HotelDirectory(hotels);
         hotelDirectory.renderHotels();
