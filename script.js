@@ -88,10 +88,6 @@ document.querySelectorAll('.hotel-card').forEach(card => {
     if (!price) card.querySelector('p:nth-child(3)').innerText = 'Price: N/A';
     if (!rating) card.querySelector('p:nth-child(4)').innerText = 'Rating: N/A';
 });
-document.addEventListener('DOMContentLoaded', () => {
-    const hotelDirectory = new HotelDirectory(hotels);
-    hotelDirectory.renderHotels();
-});
 document.addEventListener("DOMContentLoaded", () => {
     const ratings = document.querySelectorAll(".rating");
 
@@ -109,6 +105,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all hotel cards
+    const hotelCards = document.querySelectorAll('.hotel-card');
+    
+    // For each card
+    hotelCards.forEach(function(card) {
+        // Find the link inside the card's title
+        const link = card.querySelector('h3 a');
+        if (link) {
+            const href = link.getAttribute('href');
+            
+            // Make the entire card clickable
+            card.addEventListener('click', function(e) {
+                // Check if the click was on an interactive element
+                const isInteractiveElement = e.target.tagName === 'A' || 
+                                           e.target.tagName === 'BUTTON' || 
+                                           e.target.tagName === 'SELECT';
+                
+                // If not clicking on an interactive element, navigate to the hotel page
+                if (!isInteractiveElement) {
+                    window.location.href = href;
+                }
+            });
+        }
+    });
+});
 // Added functionality
 // document.addEventListener("DOMContentLoaded", () => {
 //     const hotelsGrid = document.getElementById("hotelsGrid");
